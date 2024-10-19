@@ -1,0 +1,36 @@
+# schema.graphqls
+type Query {
+    getNode(id: ID!): Node
+    getAllNodes: [Node]
+    getEdge(id: ID!): Edge
+    getAllEdges: [Edge]
+}
+
+type Mutation {
+    createNode(name: String!, type: String!, properties: [KeyValuePairInput!]!): Node
+    createEdge(sourceNodeId: ID!, targetNodeId: ID!, relationshipType: String!): Edge
+}
+
+input KeyValuePairInput {
+    key: String!
+    value: String!
+}
+
+type Node {
+    id: ID!
+    name: String!
+    type: String!
+    properties: [KeyValuePair!]!
+}
+
+type KeyValuePair {
+    key: String!
+    value: String!
+}
+
+type Edge {
+    id: ID!
+    sourceNodeId: ID!
+    targetNodeId: ID!
+    relationshipType: String!
+}

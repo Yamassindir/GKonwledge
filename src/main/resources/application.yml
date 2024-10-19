@@ -1,0 +1,16 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: GKnowledge
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/graphknowledge
+graphql:
+  schema:
+    locations: classpath:graphql/schema.graphqls  # Correct file location if needed
+  enabled: true
+logging:
+  level:
+    org.springframework.graphql: DEBUG
+    graphql.execution: DEBUG
